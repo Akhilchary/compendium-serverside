@@ -9,7 +9,7 @@ const app=express();
 
 // app.use(express.static(path.join(__dirname, 'build')));
 
-app.use(express.static(path.join(__dirname, 'frontend/build')));
+// app.use(express.static(path.join(__dirname, 'frontend/build')));
 
 
 // app.use(express.json({limit: '50mb'}));
@@ -39,9 +39,9 @@ mongoose.connect(process.env.MONGO_URL,{
 app.use('/api/posts',postRoute);
 app.use('/api/user',userRoute);
 
-app.get('/*', (req, res) => {
-  res.sendFile(path.join(__dirname, 'frontend/build', 'index.html'))
-})
+// app.get('/*', (req, res) => {
+//   res.sendFile(path.join(__dirname, 'frontend/build', 'index.html'))
+// })
 
 app.listen(PORT ,()=>{
     console.log("server is running on port "+PORT);
