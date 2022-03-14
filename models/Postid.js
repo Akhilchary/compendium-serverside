@@ -4,6 +4,10 @@ const PostidSchema = new mongoose.Schema({
     postid:{
         type:String,
         required:true
+    },
+    posttitle:{
+        type:String,
+        required:true
     }
 });
 
