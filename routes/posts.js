@@ -1,7 +1,5 @@
 const router = require("express").Router();
 const Post = require("../models/Post");
-// const fileUpload = require('express-fileupload')
-// const fs = require('fs')
 const express=require('express');
 
 
@@ -20,16 +18,6 @@ router.post("/",async(req,res)=>{
         res.status(500).json(err+" "+"could not post");
     }
 });
-
-// function saveImage(newPost,imgcoded){
-//     if (imgcoded == null) return;
-//     const im=JSON.parse(imgcoded);
-//     console.log("json parse"+im);
-//     newPost.img=new Buffer.from(im.data,"base64");
-
-
-// }
-
 
 //delete post
 

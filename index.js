@@ -3,28 +3,14 @@ const dotenv = require("dotenv");
 const mongoose=require("mongoose");
 const postRoute=require("./routes/posts");
 const userRoute=require("./routes/user");
+const postidRoute=require("./routes/postid");
 var bodyParser = require('body-parser');
-const path = require("path");
+
 const app=express();
 const cors = require('cors')
 app.use(cors())
-// app.use(express.static(path.join(__dirname, 'build')));
 
-// app.use(express.static(path.join(__dirname, 'frontend/build')));
-
-
-// app.use(express.json({limit: '50mb'}));
-// app.use(express.urlencoded({limit: '50mb', extended: true, parameterLimit: 50000000000000000000000}));
-
-app.use(bodyParser.json({ limit: "50mb", extended: true, parameterLimit: 5000000000 }))
-// app.use(bodyParser.urlencoded({ limit: "50mb", extended: true, parameterLimit: 5000000000 }))
-
-
-// app.use(bodyParser.json({limit: '50mb'}))
-// app.use(bodyParser.urlencoded({
-//   limit: '50mb',
-//   extended: true,
-// }));
+app.use(bodyParser.json({ limit: "50mb", extended: true, parameterLimit: 5000 }))
 
 
 const PORT = process.env.PORT || 5000;
@@ -39,6 +25,7 @@ mongoose.connect(process.env.MONGO_URL,{
 
 app.use('/api/posts',postRoute);
 app.use('/api/user',userRoute);
+app.use('/api/postid',postidRoute);
 
 // app.get('/*', (req, res) => {
 //   res.sendFile(path.join(__dirname, 'frontend/build', 'index.html'))
