@@ -6,18 +6,18 @@ const md5=require('md5');
 router.use(express.json({ limit: '50mb' }));
 router.use(express.urlencoded({ limit: '50mb', extended: true }));
 
-router.post('/',async(req,res)=>{
-    try{
-        const username=req.body.username
-        const password=md5(req.body.password)
-        const newUser=new User({username:username,password:password});
-        const savedUser=await newUser.save();
-        res.status(200).json(savedUser);
+// router.post('/',async(req,res)=>{
+//     try{
+//         const username=req.body.username
+//         const password=md5(req.body.password)
+//         const newUser=new User({username:username,password:password});
+//         const savedUser=await newUser.save();
+//         res.status(200).json(savedUser);
 
-    }catch(err){
-        res.status(500).json(err)
-    }
-});
+//     }catch(err){
+//         res.status(500).json(err)
+//     }
+// });
 
 router.post('/login',async(req,res)=>{
     //console.log("it is in login");
